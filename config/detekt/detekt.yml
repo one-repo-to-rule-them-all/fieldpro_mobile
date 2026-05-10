@@ -29,6 +29,13 @@ complexity:
     thresholdInEnums: 12
 
 style:
+  UnusedPrivateMember:
+    active: true
+    # @Preview functions exist solely for IDE rendering and are intentionally
+    # private + uncalled. Same goes for @PreviewParameter sources.
+    ignoreAnnotated:
+      - 'Preview'
+      - 'PreviewParameter'
   ReturnCount:
     max: 4
   MagicNumber:

@@ -1,6 +1,5 @@
 package app.fieldpro.designsystem
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -11,7 +10,6 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalView
 
 private val FieldProLight = lightColorScheme(
     primary = Color(0xFF0E4F88),
@@ -68,18 +66,9 @@ fun FieldProTheme(
         else -> FieldProLight
     }
 
-    // Compose owns the window once it draws; status bar tinting is left to system defaults
-    // until Phase 3 polish lands.
-    @Suppress("UNUSED_VARIABLE")
-    val view = LocalView.current
-
     MaterialTheme(
         colorScheme = colorScheme,
         typography = MaterialTheme.typography,
         content = content,
     )
 }
-
-/** Re-export of the underlying [Activity] type so feature modules can opt into edge-to-edge
- *  setup without importing AndroidX explicitly. */
-typealias FieldProActivity = Activity
