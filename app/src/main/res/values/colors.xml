@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Used by the launcher background and any pre-Compose surfaces.
+         Compose colour tokens live in :core:designsystem. -->
+    <color name="ic_launcher_background">#0E4F88</color>
+    <color name="splash_background">#0E4F88</color>
+</resources>

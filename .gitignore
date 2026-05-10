@@ -1,0 +1,73 @@
+# Built application files
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Java/Kotlin class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+release/
+
+# Gradle
+.gradle/
+build/
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+.navigation/
+captures/
+.cxx/
+
+# Keystore
+*.jks
+*.keystore
+keystore.properties
+
+# Log Files
+*.log
+
+# Android Profiling
+*.hprof
+
+# Kotlin
+.kotlin/
+
+# KSP
+**/build/generated/ksp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Firebase
+google-services.json
+GoogleService-Info.plist
+firebase-debug.log
+
+# Secrets
+.env
+.env.*
+*.secret
+
+# Coverage
+**/build/reports/
+**/build/test-results/
+
+# OpenAPI generator output (regenerated on build)
+core/network/src/main/kotlin/app/fieldpro/network/generated/
+
+# Workspace docs from parent Cowork OS folder — not part of this repo
+ai_promp.md
+existing_backend.md
+
+# Claude Code session settings — not part of this repo
+.claude/

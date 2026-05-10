@@ -1,0 +1,69 @@
+# FieldPro detekt config — opinionated baseline. Extends detekt defaults via
+# `buildUponDefaultConfig = true` in the root build script, so only the rules that
+# differ from defaults are declared here.
+
+build:
+  maxIssues: 0
+  weights:
+    complexity: 2
+    LongParameterList: 1
+    style: 1
+    comments: 1
+
+complexity:
+  active: true
+  ComplexCondition:
+    threshold: 5
+  CyclomaticComplexMethod:
+    threshold: 18
+  LongMethod:
+    threshold: 80
+  LongParameterList:
+    functionThreshold: 8
+    constructorThreshold: 10
+  TooManyFunctions:
+    thresholdInFiles: 25
+    thresholdInClasses: 18
+    thresholdInInterfaces: 10
+    thresholdInObjects: 12
+    thresholdInEnums: 12
+
+style:
+  ReturnCount:
+    max: 4
+  MagicNumber:
+    ignoreEnums: true
+    ignoreNumbers:
+      - '-1'
+      - '0'
+      - '1'
+      - '2'
+      - '100'
+    ignorePropertyDeclaration: true
+    ignoreLocalVariableDeclaration: true
+    ignoreConstantDeclaration: true
+    ignoreCompanionObjectPropertyDeclaration: true
+    ignoreAnnotation: true
+    ignoreNamedArgument: true
+  MaxLineLength:
+    maxLineLength: 140
+    excludePackageStatements: true
+    excludeImportStatements: true
+  WildcardImport:
+    active: true
+
+empty-blocks:
+  EmptyFunctionBlock:
+    active: true
+    ignoreOverridden: true
+
+naming:
+  FunctionNaming:
+    # Compose @Composable functions are PascalCase.
+    functionPattern: '[a-zA-Z][a-zA-Z0-9]*'
+
+# Compose-specific noise we don't care about at the project default level.
+performance:
+  active: true
+  SpreadOperator:
+    active: false

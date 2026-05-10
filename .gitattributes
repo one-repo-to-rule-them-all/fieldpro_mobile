@@ -1,0 +1,29 @@
+# Force LF line endings for text files — this keeps Linux CI (and bash gradlew)
+# happy regardless of contributor OS. Windows checkout still gets CRLF locally
+# unless the file is listed below as eol=lf.
+
+* text=auto eol=lf
+
+# Shell script must be LF or bash on Linux can't execute it.
+gradlew                  text eol=lf
+*.sh                     text eol=lf
+
+# Windows batch must be CRLF or cmd misbehaves.
+gradlew.bat              text eol=crlf
+*.bat                    text eol=crlf
+*.cmd                    text eol=crlf
+
+# Binary types — never normalize.
+*.png                    binary
+*.jpg                    binary
+*.jpeg                   binary
+*.gif                    binary
+*.ico                    binary
+*.jar                    binary
+*.keystore               binary
+*.jks                    binary
+*.aab                    binary
+*.apk                    binary
+
+# Generated wrapper jar should not be diffed inline.
+gradle-wrapper.jar       binary
