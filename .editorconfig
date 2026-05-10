@@ -15,6 +15,13 @@ ktlint_function_naming_ignore_when_annotated_with = Composable, Preview, Test
 ktlint_standard_no-wildcard-imports = enabled
 ktlint_standard_trailing-comma-on-call-site = enabled
 ktlint_standard_trailing-comma-on-declaration-site = enabled
+# Disabled rules — these fight Compose ergonomics across the entire project:
+#   multiline-expression-wrapping forces `modifier = \n Modifier.fillMaxSize()`
+#   function-signature constrains argument-per-line in builder DSLs
+# Re-enable in feature modules later if the team wants stricter local rules.
+ktlint_standard_multiline-expression-wrapping = disabled
+ktlint_standard_function-signature = disabled
+ktlint_standard_chain-method-continuation = disabled
 
 [*.{xml,yml,yaml,json,toml}]
 indent_size = 2
