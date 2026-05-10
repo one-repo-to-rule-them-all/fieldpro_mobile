@@ -8,7 +8,9 @@ package app.fieldpro.common.result
  * - [NetworkError] — the call never made a round trip (DNS, TLS, socket, timeout).
  */
 sealed interface ApiResult<out T> {
-    data class Success<T>(val data: T) : ApiResult<T>
+    data class Success<T>(
+        val data: T,
+    ) : ApiResult<T>
 
     data class Error(
         val code: String,
@@ -16,7 +18,9 @@ sealed interface ApiResult<out T> {
         val httpStatus: Int,
     ) : ApiResult<Nothing>
 
-    data class NetworkError(val cause: Throwable) : ApiResult<Nothing>
+    data class NetworkError(
+        val cause: Throwable,
+    ) : ApiResult<Nothing>
 }
 
 inline fun <T, R> ApiResult<T>.map(transform: (T) -> R): ApiResult<R> = when (this) {

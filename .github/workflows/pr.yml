@@ -44,11 +44,13 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
+      # --continue surfaces all violations in a single CI run instead of
+      # short-circuiting at the first failure. Faster feedback on style changes.
       - name: ktlint
-        run: ./gradlew ktlintCheck --stacktrace
+        run: ./gradlew ktlintCheck --stacktrace --continue
 
       - name: detekt
-        run: ./gradlew detekt --stacktrace
+        run: ./gradlew detekt --stacktrace --continue
 
       - name: Android Lint
         run: ./gradlew :app:lintDebug --stacktrace
